@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EditComponent implements OnInit {
   
-  my_heroes: Hero[]=[];
+  public my_heroes: Hero[]=[];
 
   //un héro vide pour addHero()
   hero = {
@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   edit = true;
   add = false;
 
-  constructor(private heroservice: HeroService){}
+  constructor( private heroservice: HeroService){}
 
   //récupère tous les héros
   getmy_heroes(){
@@ -42,9 +42,8 @@ export class EditComponent implements OnInit {
   removeHero(hero : Hero) {
     const id = hero.id;
     console.log(hero);
-    this.heroservice.delete_hero(id).subscribe((hero: any) => console.log(hero));
-    this.getmy_heroes()
-    console.log("pipi");
+    this.heroservice.delete_hero(id).subscribe((hero: any) => console.log(hero + "suppression du héro ok"));
+    this.getmy_heroes();
   }
 
   /*
@@ -82,7 +81,7 @@ export class EditComponent implements OnInit {
   }
 
   updateHero(){
-    this.heroservice.editHero(this.hero).subscribe(response => console.log(response));
+    this.heroservice.editHero(this.hero, this.hero.id).subscribe(response => console.log(response));
     this.getmy_heroes()
     this.resetValues()
   }
@@ -99,4 +98,8 @@ export class EditComponent implements OnInit {
   ngOnInit(){
     this.getmy_heroes();
 }
+
+
 }
+
+

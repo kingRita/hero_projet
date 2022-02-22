@@ -19,21 +19,25 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatDialog} from '@angular/material/dialog';
+
 
 //import Reactive Form
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+//import AG-Grid
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    DisplayComponent
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
+    AgGridModule.withComponents([]),
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -48,7 +52,8 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

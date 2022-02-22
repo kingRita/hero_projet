@@ -1,10 +1,10 @@
-<p>edit works!</p>
 <!-- Ajouter un héro -->
 <div>
-  <button mat-raised-button color="warn" (click)="addHero()">Ajouter un héro</button>
+  <!--ajoute héro vide => mettre en place le form + dialog-->
+  <button mat-raised-button color="warn" >Ajouter un héro</button>
   <button mat-raised-button color="primary" (click)="updateHero()">Modifier un héro</button>
 </div>
-
+<div>
 <table class ="table">
   <tr>
     <th>Id</th>
@@ -28,8 +28,10 @@
       </td>
       <td>  
         <button mat-raised-button color="primary" (click)="setHeroEdit(u)"> Modifier</button>
+        <!--ok, fonctionne-->
         <button mat-raised-button color="warn" (click)="removeHero(u)">Supprimer</button>
-
       </td>
     </tr>
-  </table>   
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>   

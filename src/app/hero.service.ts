@@ -25,6 +25,7 @@ export class HeroService {
     );
   }
 
+
   // Récupérer les héros (GET) par leurs id
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
@@ -66,9 +67,17 @@ export class HeroService {
     )
   }
 
-  //modifier un héro
-  editHero(hero: Hero): Observable<any> {
+
+/* update Hamada (editer)
+  public updatePolicy(policy: {id: number, amount: number, clientId: number, userId: number, description: string}){
+      return this.httpClient.put(`${this.SERVER_URL + 'heroes'}/${policy.id}`, policy)
+  }
+*/
+
+  //modifier un héro (put method)
+  editHero(hero: Hero, id : number): Observable<any> {
     return this.http.put(this.heroesUrl + hero.id, hero);
   }
  
+
 }
