@@ -1,0 +1,25 @@
+<p>edit works!</p>
+<!-- Ajouter un héro -->
+<button mat-raised-button color="warn" >Ajouter un héro</button>
+
+<table class ="table">
+    <tr *ngFor="let u of my_heroes">
+      <td>
+        {{u.id}}
+      </td>
+      <td>
+        {{u.name}}
+      </td>
+      <td>
+        {{u.title}}
+      </td>
+      <td>
+        {{u.key}}
+      </td>
+      <td>  
+        <button mat-raised-button color="primary"> Modifier</button>
+        <button mat-raised-button color="warn">Supprimer</button>
+
+      </td>
+    </tr>
+  </table>   
