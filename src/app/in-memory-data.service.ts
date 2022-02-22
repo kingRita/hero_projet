@@ -845,4 +845,8 @@ export class InMemoryDataService implements InMemoryDbService {
   genId(heroes: Hero[]): number {
     return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 1;
   }
+  /**  genId(collection: { id: number }[], collectionName: string) {
+    this.maxId = 1 + collection.reduce((prev, cur) => Math.max(prev, cur.id || 0), this.maxId);
+    return this.maxId;
+  } */
 }

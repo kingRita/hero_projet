@@ -1,8 +1,18 @@
 <p>edit works!</p>
 <!-- Ajouter un héro -->
-<button mat-raised-button color="warn" >Ajouter un héro</button>
+<div>
+  <button mat-raised-button color="warn" (click)="addHero()">Ajouter un héro</button>
+  <button mat-raised-button color="primary" (click)="updateHero()">Modifier un héro</button>
+</div>
 
 <table class ="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Title</th>
+    <th>Key</th>
+    <th>Modifier / Ajouter</th>
+  </tr>
     <tr *ngFor="let u of my_heroes">
       <td>
         {{u.id}}
@@ -17,8 +27,8 @@
         {{u.key}}
       </td>
       <td>  
-        <button mat-raised-button color="primary"> Modifier</button>
-        <button mat-raised-button color="warn">Supprimer</button>
+        <button mat-raised-button color="primary" (click)="setHeroEdit(u)"> Modifier</button>
+        <button mat-raised-button color="warn" (click)="removeHero(u)">Supprimer</button>
 
       </td>
     </tr>

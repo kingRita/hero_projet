@@ -34,6 +34,7 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatTableModule,
