@@ -1,8 +1,7 @@
 <!-- Ajouter un héro -->
 <div>
   <!--ajoute héro vide => mettre en place le form + dialog-->
-  <button mat-raised-button color="warn" >Ajouter un héro</button>
-  <button mat-raised-button color="primary" (click)="updateHero()">Modifier un héro</button>
+  <button mat-raised-button (click)="openDialog()" color="warn" >Ajouter un héro</button>
 </div>
 <div>
 <table class ="table">
@@ -11,7 +10,7 @@
     <th>Nom</th>
     <th>Title</th>
     <th>Key</th>
-    <th>Modifier / Ajouter</th>
+    <th>Modifier / Supprimer</th>
   </tr>
     <tr *ngFor="let u of my_heroes">
       <td>
@@ -27,7 +26,7 @@
         {{u.key}}
       </td>
       <td>  
-        <button mat-raised-button color="primary" (click)="setHeroEdit(u)"> Modifier</button>
+        <button mat-raised-button color="primary" (click)="openDialog()"> Modifier</button>
         <!--ok, fonctionne-->
         <button mat-raised-button color="warn" (click)="removeHero(u)">Supprimer</button>
       </td>

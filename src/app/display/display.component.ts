@@ -16,8 +16,7 @@ export class DisplayComponent implements OnInit {
   
   public arrHeroes: Array<Hero> = [];
   private heroesUrl = 'api/heroes_api/';
-  //policies: any[] = [];*/
-
+  
   constructor(public heroservice: HeroService,
     private http: HttpClient) {
     this.rowData = this.http.get<any[]>(this.heroesUrl);

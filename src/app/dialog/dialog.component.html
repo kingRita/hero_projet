@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Ajouter un héro</h1>
+<div mat-dialog-content >
+    <form class="my_form" [formGroup]="AddHeroForm">
+        <mat-form-field class = "full-width" appearance="outline">
+            <mat-label>Id </mat-label>
+            <input matInput type="number"  placeholder="Id" formControlName="id">
+        </mat-form-field>
+
+        <mat-form-field class = "full-width" appearance="outline">
+            <mat-label>Nom </mat-label>
+            <input matInput id="name" type="text" placeholder="Nom" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class = "full-width" appearance="outline">
+            <mat-label>Titre </mat-label>
+            <input matInput id ="title" type="text" placeholder="Titre" formControlName="title">
+        </mat-form-field>
+
+
+        <mat-form-field class = "full-width" appearance="outline">
+            <mat-label>Clé </mat-label>
+            <input matInput id="key" type="text" placeholder="Clé" formControlName="key">
+         </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Retour</button>
+    <button mat-raised-button color="primary" style="margin-left: 8px;" 
+    (click)="ajouterHero()" [disabled]="!AddHeroForm.valid">Enregistrer</button>
+</div>

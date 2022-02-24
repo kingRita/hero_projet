@@ -25,59 +25,22 @@ export class HeroService {
     );
   }
 
-
-  // Récupérer les héros (GET) par leurs id
-  getHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
-      catchError(this.handleError)
-      );
-  }
-
-
-  /*/ajouter un héro
-  addHero (hero: Hero): Observable<Hero> { 
-    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(data => console.log(data)),
-      catchError(this.handleError)
-    );
-}*/
-
-  /*/modifier un héro
-  updateHero (hero : Hero) : Observable<Hero>{
-    const url = `${this.heroesUrl}/${hero.id}`;
-    return this.http.put<Hero>(this.heroesUrl, hero).pipe(
-    map(() => hero),
-    catchError(this.handleError));
-  }*/
- 
   //supprimer un héro à l'aide de son id
   delete_hero(id: number): Observable<any> {
     return this.http.delete(this.heroesUrl + id);
   }
 
-  //créer un héro
-  createHero(hero: Hero): Observable<Hero> {
-    hero.id = 0;
-    return this.http.post<Hero>(this.heroesUrl, hero).pipe(
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return throwError(error);
-      })
-    )
+  //ajouter un héro
+  createHero(data : any){
+    return this.http.post<any>(this.heroesUrl , data)
   }
 
-
-/* update Hamada (editer)
-  public updatePolicy(policy: {id: number, amount: number, clientId: number, userId: number, description: string}){
-      return this.httpClient.put(`${this.SERVER_URL + 'heroes'}/${policy.id}`, policy)
-  }
-*/
 
   //modifier un héro (put method)
-  editHero(hero: Hero, id : number): Observable<any> {
-    return this.http.put(this.heroesUrl + hero.id, hero);
+  editHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero);
   }
  
+  
 
 }

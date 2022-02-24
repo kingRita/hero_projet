@@ -19,6 +19,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
 
 
 //import Reactive Form
@@ -27,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import AG-Grid
 import { AgGridModule } from 'ag-grid-angular';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -34,9 +37,12 @@ import { AgGridModule } from 'ag-grid-angular';
     AppComponent,
     EditComponent,
     DisplayComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
+    MatCardModule,
     AgGridModule.withComponents([]),
     FormsModule,
     MatToolbarModule,

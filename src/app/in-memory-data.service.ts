@@ -9,7 +9,7 @@ import { Hero } from './model/hero';
 export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb(){
-   let  heroes_api =  [
+   const  heroes_api =  [
        {   "title": "the Dark Child",
             "id": 1,
             "key": "Annie",
@@ -841,12 +841,8 @@ export class InMemoryDataService implements InMemoryDbService {
    return {heroes_api};
 }
 
-  //permet de générer un ID pour les nouveaux héros 
-  genId(heroes: Hero[]): number {
-    return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 1;
+genId(heroes_api: Hero[]): number {
+    return heroes_api.length > 0 ? Math.max(...heroes_api.map(hero => hero.id)) + 1 : 11;
   }
-  /**  genId(collection: { id: number }[], collectionName: string) {
-    this.maxId = 1 + collection.reduce((prev, cur) => Math.max(prev, cur.id || 0), this.maxId);
-    return this.maxId;
-  } */
+
 }
