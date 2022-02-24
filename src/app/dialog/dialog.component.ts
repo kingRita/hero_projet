@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { max } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 import { HeroService } from '../hero.service';
 import { Hero } from '../model/hero';
 
@@ -21,13 +20,11 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.AddHeroForm = this.formBuilder.group({
-      id: ['', Validators.required],
       name: ['', Validators.required],
       title: ['', Validators.required],
       key: ['', Validators.required],
     })
   }
-
 
 
   //Add Hero
@@ -47,21 +44,4 @@ export class DialogComponent implements OnInit {
     }
     } 
 
-
-  //Update Hero
-  UpdateHero(){
-    console.log(this.AddHeroForm.value);
-    if(this.AddHeroForm.valid){
-      this.heroservice.editHero(this.AddHeroForm.value).subscribe({
-        next:(res)=>{
-          console.log(this.AddHeroForm.value);
-          alert("Le Héro a bien été modifié!")
-          this.AddHeroForm.reset();
-          this.dialogRef.close();         },
-        error:()=>{
-          alert("Erreur...")
-        }
-      })
-    }
-}
 }

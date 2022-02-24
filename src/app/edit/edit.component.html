@@ -1,8 +1,9 @@
 <!-- Ajouter un héro -->
 <div>
-  <!--ajoute héro vide => mettre en place le form + dialog-->
   <button mat-raised-button (click)="openDialog()" color="warn" >Ajouter un héro</button>
 </div>
+
+<!-- Liste des héros-->
 <div>
 <table class ="table">
   <tr>
@@ -26,11 +27,56 @@
         {{u.key}}
       </td>
       <td>  
-        <button mat-raised-button color="primary" (click)="openDialog()"> Modifier</button>
-        <!--ok, fonctionne-->
+        <!--Bouton modifier (ouvre le modal bootstrap)-->
+        <button mat-raised-button type="button" color="primary" data-bs-toggle="modal" 
+        data-bs-target="#exampleModal" (click)="openModal(u)"> Modifier</button>
+
+        <!--Bouton supprimer-->
         <button mat-raised-button color="warn" (click)="removeHero(u)">Supprimer</button>
       </td>
     </tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>   
+
+<!-- Boostrap modal pour modifier les héros -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!----------------------------- Formulaire Modifier un héro ---------------------------------->
+        <h1 mat-dialog-title>Modifier un héro</h1>
+        <form class="my_form" [formGroup]="UpdateHeroForm">
+            <mat-form-field class = "full-width" appearance="outline">
+
+                <mat-label>Nom </mat-label>
+                <!--[(ngModel)]="hero.name"-->
+                <input matInput id="name" type="text"  placeholder="Nom" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class = "full-width" appearance="outline">
+                <mat-label>Titre </mat-label>
+                <input matInput id ="title" type="text" placeholder="Titre" formControlName="title">
+            </mat-form-field>
+
+
+            <mat-form-field class = "full-width" appearance="outline">
+                <mat-label>Clé </mat-label>
+                <input matInput id="key" type="text" placeholder="Clé" formControlName="key">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+      <button mat-raised-button color="warn" data-bs-dismiss="modal">Retour</button>
+      <button mat-raised-button color="primary" data-bs-dismiss="modal"
+      style="margin-left: 8px;" (click)="setChange()" >Enregistrer</button>
+   </div>
+
+      <!------------------------- Fin formulaire----------------------------------------->
+
+
+      </div>
+    </div>
+  </div>

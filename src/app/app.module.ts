@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayComponent } from './display/display.component';
 import { EditComponent } from './edit/edit.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 //import in-memory-web-api
 import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -29,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import AG-Grid
 import { AgGridModule } from 'ag-grid-angular';
-import { DialogComponent } from './dialog/dialog.component';
+
 
 
 @NgModule({

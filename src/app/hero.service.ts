@@ -25,22 +25,31 @@ export class HeroService {
     );
   }
 
+  /*récupérer un héro à partir de son id
+  getHero(heroid : number): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl+ heroid).pipe(
+      tap(data => console.log(data ,"héro choisi bien récup")),
+      catchError(this.handleError)
+    );
+  }*/
+
+
   //supprimer un héro à l'aide de son id
   delete_hero(id: number): Observable<any> {
     return this.http.delete(this.heroesUrl + id);
   }
 
   //ajouter un héro
-  createHero(data : any){
+  createHero(data : any) {
     return this.http.post<any>(this.heroesUrl , data)
   }
 
 
   //modifier un héro (put method)
-  editHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero);
+  editHero(data : any , id : number ) {
+    console.log(data,"données dans heroservice");
+    return this.http.put<any>(this.heroesUrl + id ,  data);
   }
  
-  
 
 }
