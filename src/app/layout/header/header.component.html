@@ -1,16 +1,15 @@
-<mat-toolbar>
-    <span>Heros Lol</span>
-    <span class="example-spacer"></span>
+<mat-toolbar class="header">
+    <span></span>
+    <div><a mat-button [routerLink]="'/heroes'"> Héros League of Legends </a></div>
+    <span class="spacer"></span>
 
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/heroes'"> Liste des héros </a>
-      <a mat-button [routerLink]="'/edit'"> Edit </a>
+    <span class="spacer"></span>
+    <div  >
+      <a mat-button  [routerLink]="'/heroes'"> Liste des héros </a>
+      <a mat-button [routerLink]="'/edit'"> Modifications </a>
+      <i class="fab fa-github fa-2x" aria-hidden="true"></i>
     </div>
 
-    <i class="fab fa-github"></i>
-    
-       <!-- https://github.com/kingRita/hero_projet -->
 </mat-toolbar>
   
   

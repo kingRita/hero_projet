@@ -5,6 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HeroModif } from './ModifierHeroClass';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-edit',
@@ -15,6 +18,21 @@ export class EditComponent implements OnInit {
   
   public my_heroes: Hero[]=[];
   public my_hero : HeroModif = new HeroModif();
+
+  //mat-table
+  displayedColumns: string[] = ['Id', 'Nom', 'Titre', 'Clé', 'MS'];
+  dataSource !: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  //Chercher un héro
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  
 
   //Nouveau formulaire modifier un héro
   UpdateHeroForm = new FormGroup({ });
@@ -28,6 +46,9 @@ export class EditComponent implements OnInit {
   getmy_heroes(){
     this.heroservice.getHeroes().subscribe(data => {
       this.my_heroes=data;
+      //remplit notre mat-table
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }    
 
@@ -57,6 +78,7 @@ export class EditComponent implements OnInit {
       title: [''],
       key: [''],
     });
+    
 }
 
 ////////////////////////Modifier un héro///////////////////////////////

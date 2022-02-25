@@ -22,10 +22,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import {MatSortModule} from '@angular/material/sort';
 
 
 //import Reactive Form
-import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import AG-Grid
@@ -43,6 +46,7 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     BrowserModule,
     MatDialogModule,
+    MatSortModule,
     MatCardModule,
     AgGridModule.withComponents([]),
     FormsModule,

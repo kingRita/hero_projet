@@ -1,16 +1,36 @@
-table, th , td {
-    border: 1px solid grey;
-    border-collapse: collapse;
-    padding: 5px;
-  }
-
+//formulaire
   .my_form{
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
   
-  .full-width {
-    width: 100%;
-  }
-  
+//bouton
+.ajout{
+  padding-top: 30px;
+  padding-right: 80px;
+  text-align: right;
+}
+
+
+//table
+table{
+  width: 100%;
+}
+
+
+td, th {
+  width: 10%;
+}
+
+.corps:hover {background-color: lightgray;}
+
+.headT{
+  background-color: #EAECEE ;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
